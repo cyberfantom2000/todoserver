@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "default": {
+            "format": "%(name)s — %(asctime)s — %(levelname)s — %(message)s"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "default"
+        },
+        "rotating_file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "INFO",
+            "formatter": "default",
+            "filename": "log/main.log",
+            "maxBytes": 3145728,
+            "backupCount": 2
+        }
+    },
+    "loggers": {
+        "default": {
+            "handlers": ["console", "rotating_file"],
+            "level": "DEBUG"
+        }
+    }
+}

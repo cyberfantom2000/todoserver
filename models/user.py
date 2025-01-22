@@ -6,7 +6,6 @@ from .task import Task, TaskPublic
 
 
 class UserBase(SQLModel):
-    id: uuid.UUID | None = Field(primary_key=True, default=None)
     first_name: str | None = Field(default=None)
     second_name: str | None = Field(default=None)
     birthday: datetime.date | None = Field(default=None)
@@ -16,7 +15,8 @@ class UserBase(SQLModel):
 
 
 class User(UserBase, table=True):
-    registration: datetime = Field(default_factory=datetime.datetime.now)
+    id: uuid.UUID | None = Field(primary_key=True, default=None)
+    registration: datetime.datetime = Field(default_factory=datetime.datetime.now)
     tasks: list[Task] = Relationship(back_populates=None)
 
 
