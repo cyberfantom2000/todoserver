@@ -1,5 +1,6 @@
 import uuid
 from dataclasses import dataclass
+from sqlmodel import SQLModel
 
 
 @dataclass
